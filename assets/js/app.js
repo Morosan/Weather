@@ -66,13 +66,17 @@ searchField.addEventListener("input", function() {
               <p class="label-2 item-subtitle">${state || ""} ${country}</p> 
             </div>
 
-            <a href="#/weather?lat=${lat}&lon=${lon} class="item-link has-state" aria-label="${name} weather" data-search-toggler></a>
+            <a href="#/weather?lat=${lat}&lon=${lon}" class="item-link has-state" aria-label="${name} weather" data-search-toggler></a>
           `;
 
           searchResult.querySelector("[data-search-list]").appendChild(searchItem);
           items.push(searchItem.querySelector("[data-search-toggler]"));
         }
-      })
+        addEventOnElements(items, "click", function() {
+          toggleSearch();
+          searchResult.classList.remove("active");
+        });
+      });
     }, searchTimeoutDuration);
   }
 });
@@ -88,12 +92,12 @@ const errorContent = document.querySelector("[data-error-content]");
 // @param {number} lon Longitude
 
 export const updateWeather = function(lat, lon) {
-  loading.computedStyleMap.display = "grid";
-  container.computedStyleMap.overflowY = "hidden";
+  // loading.style.display = "grid";
+  container.style.overflowY = "hidden";
   container.classList.contains("fade-in") ?? container.classList.remove("fade-in");
-  errorContent.computedStyleMap.display = "none";
+  errorContent.style.display = "none";
 
-  const currentWeatherSection = doocument.querySelector("[data-current-weather]");
+  const currentWeatherSection = document.querySelector("[data-current-weather]");
   const highlightSection = document.querySelector("[data-highlights]");
   const hourlySection = document.querySelector("[data-hourly-forecast]");
   const forecastSection = document.querySelector("[data-5-day-forecast]");
@@ -149,9 +153,12 @@ export const updateWeather = function(lat, lon) {
 
     fetchData(url.reverseGeo(lat, lon), function([{ name, country }]) {
       card.querySelector("[data-location]").innerHTML = `${name}, ${country}`
-    })
+    });
 
     currentWeatherSection.appendChild(card);
+  });
+}
 
-  })
+export const error404 = function() {
+
 }

@@ -321,9 +321,8 @@ body {
 }
 
 /* #HEADER */
-.search-view,
 .header .btn-primary .span {
-  /* display: none; */
+  display: none;
 }
 
 .logo img {
