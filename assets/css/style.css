@@ -340,9 +340,15 @@ body {
   display: none;
 }
 
-.logo img {
-  width: 150px;
+.logo {
+  display: flex;
+  align-items: center;
 }
+
+.logo svg {
+  margin-right: 20px;
+}
+
 
 .header .container,
 .header-actions {
