@@ -186,6 +186,7 @@ body {
   width: 100%;
   margin-line: auto;
   padding: 16px;
+  margin: auto;
 }
 
 .icon-btn {
@@ -554,8 +555,6 @@ article.container::before {
   color: var(--on-surface-variant); 
 }
 
-/* https://www.youtube.com/watch?v=QMwyNnjAils&t=499s  51:43 */
-
 /*-----------------------------------*\
   #HIGHLIGHTS
 \*-----------------------------------*/
@@ -585,6 +584,10 @@ article.container::before {
 .forecast-card .card-item > .label-1 {
   width: 100%;
   text-align: right;
+}
+
+.forecast-card .card-item > .label-1:last-child {
+  margin-left: 10px;
 }
 
 /*-----------------------------------*\
@@ -782,14 +785,14 @@ article.container::before {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-item: center;
+  align-items: center;
 }
 
 .footer {
   color: var(--on-surface-variant);
   text-align: center;
   gap: 12px 24px;
-  margin-block-start: 28px;
+  margin-block: 28px;
   /* display: none; */
 }
 
@@ -1037,7 +1040,7 @@ article.container::before {
   }
 
   article.container {
-    grid-template-columns: 360px minmax(0 1fr);
+    grid-template-columns: 360px minmax(0, 1fr);
     gap: 40px;
   }
 

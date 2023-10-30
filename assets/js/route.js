@@ -28,7 +28,6 @@ const checkHash = function() {
   const [route, query] = requestURL.includes ? requestURL.split("?") : [requestURL];
 
   routes.get(route) ? routes.get(route)(query) : error404();
-  console.log(3);
 }
 
 window.addEventListener("hashchange", checkHash);
@@ -36,9 +35,7 @@ window.addEventListener("hashchange", checkHash);
 window.addEventListener("load", function() {
   if (!this.window.location.hash) {
     window.location.hash = "#/current-location";
-    console.log(1);
   } else {
     checkHash();
-    console.log(2);
   }
 });
