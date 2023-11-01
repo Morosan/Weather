@@ -112,7 +112,7 @@ export const updateWeather = function(lat, lon) {
   } else {
     currentLocationBtn.removeAttribute("dissabled");
   }
-
+  
   // CURRENT WEATHER SECTION
   fetchData(url.currentWeather(lat, lon), function(currentWeather) {
     const {
@@ -146,7 +146,7 @@ export const updateWeather = function(lat, lon) {
 
         <li class="meta-item">
           <span class="m-icon">location_on</span>
-          <p class="title-3 meta-text" data-location>London, GB</p>
+          <p class="title-3 meta-text" data-location>Cluj-napoca, RO</p>
         </li>
       </ul>
     `;
